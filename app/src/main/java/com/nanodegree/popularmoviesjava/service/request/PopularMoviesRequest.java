@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 /**
  * Created by luanfernandes on 31/08/17.
  */
-interface PopularMoviesRequest{
+public interface PopularMoviesRequest{
 
 
     @GET("movie/popular")
