@@ -21,7 +21,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     private final ItemClickListener onClickItem;
     private final Context context;
     private String imageWidth = "w500/";
-    public ArrayList<MovieDTO> movieList;
+    public ArrayList<MovieDTO> movieList = new ArrayList<>();
 
     public MovieAdapter(Context context, ItemClickListener onClickItem) {
         this.onClickItem = onClickItem;

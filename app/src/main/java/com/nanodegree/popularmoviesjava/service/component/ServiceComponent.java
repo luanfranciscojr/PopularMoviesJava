@@ -13,6 +13,6 @@ import retrofit2.Retrofit;
  */
 @Singleton
 @Component(modules = {ServiceModule.class})
-interface ServiceComponent {
+public interface ServiceComponent {
      Retrofit retrofit();
 }

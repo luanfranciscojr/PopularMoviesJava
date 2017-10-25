@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 public class MoviePresenter implements Callback<GenericDTO<MovieDTO>> {
 
 
-    private Integer currentPage = 1;
+    public Integer currentPage = 1;
     private boolean isTopRatedRequest;
     private boolean isLastPage;
     private boolean isLoading;
@@ -64,7 +64,7 @@ public class MoviePresenter implements Callback<GenericDTO<MovieDTO>> {
        return currentPage == 1;
     }
 
-    void loadNextPage() {
+    public void loadNextPage() {
         if (isLastPage || isLoading) {
             return;
         }
