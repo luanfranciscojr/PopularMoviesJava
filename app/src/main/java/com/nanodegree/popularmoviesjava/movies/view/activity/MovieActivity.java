@@ -1,4 +1,4 @@
-package com.nanodegree.popularmoviesjava.movies.activity;
+package com.nanodegree.popularmoviesjava.movies.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,12 +16,11 @@ import com.nanodegree.popularmoviesjava.R;
 import com.nanodegree.popularmoviesjava.common.ItemClickListener;
 import com.nanodegree.popularmoviesjava.common.ScrollRecyclerViewListener;
 import com.nanodegree.popularmoviesjava.dto.MovieDTO;
-import com.nanodegree.popularmoviesjava.movies.adapter.MovieAdapter;
+import com.nanodegree.popularmoviesjava.movies.view.adapter.MovieAdapter;
 import com.nanodegree.popularmoviesjava.movies.component.DaggerMovieComponent;
 import com.nanodegree.popularmoviesjava.movies.module.MovieModule;
 import com.nanodegree.popularmoviesjava.movies.presenter.MoviePresenter;
 import com.nanodegree.popularmoviesjava.movies.view.MovieView;
-import com.nanodegree.popularmoviesjava.service.component.ServiceComponent;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.nanodegree.popularmoviesjava.movies.component;
 
 
 import com.nanodegree.popularmoviesjava.common.CustomScope;
-import com.nanodegree.popularmoviesjava.movies.activity.MovieActivity;
+import com.nanodegree.popularmoviesjava.movies.view.activity.MovieActivity;
 import com.nanodegree.popularmoviesjava.movies.module.MovieModule;
 import com.nanodegree.popularmoviesjava.service.component.ServiceComponent;
 

@@ -1,4 +1,4 @@
-package com.nanodegree.popularmoviesjava.movies.adapter;
+package com.nanodegree.popularmoviesjava.movies.view.adapter;
 
 
 import android.content.Context;
