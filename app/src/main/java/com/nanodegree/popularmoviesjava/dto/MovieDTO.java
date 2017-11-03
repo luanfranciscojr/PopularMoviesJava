@@ -19,7 +19,7 @@ public class MovieDTO implements Parcelable {
     private String originalLanguage;
     private String title;
     private String backdropPath;
-    private Integer popularity;
+    private Double popularity;
     private Integer voteCount;
     private Boolean isVideo;
     private Integer number;
@@ -36,7 +36,7 @@ public class MovieDTO implements Parcelable {
         originalLanguage = in.readString();
         title = in.readString();
         backdropPath = in.readString();
-        popularity = in.readByte() == 0x00 ? null : in.readInt();
+        popularity = in.readByte() == 0x00 ? null : in.readDouble();
         voteCount = in.readByte() == 0x00 ? null : in.readInt();
         byte isVideoVal = in.readByte();
         isVideo = isVideoVal == 0x02 ? null : isVideoVal != 0x00;
@@ -78,7 +78,7 @@ public class MovieDTO implements Parcelable {
             dest.writeByte((byte) (0x00));
         } else {
             dest.writeByte((byte) (0x01));
-            dest.writeInt(popularity);
+            dest.writeDouble(popularity);
         }
         if (voteCount == null) {
             dest.writeByte((byte) (0x00));
@@ -193,11 +193,11 @@ public class MovieDTO implements Parcelable {
         this.backdropPath = backdropPath;
     }
 
-    public Integer getPopularity() {
+    public Double getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(Integer popularity) {
+    public void setPopularity(Double popularity) {
         this.popularity = popularity;
     }
 

@@ -25,7 +25,7 @@ public class DetailMoviePresenter implements Callback<MovieDetailDTO> {
         this.retrofit = retrofit;
         this.view = view;
     }
-    void loadMovieDetail(Long movieId) {
+    public void loadMovieDetail(Long movieId) {
         PopularMoviesRequest popularMoviesRequest = retrofit.create(PopularMoviesRequest.class);
         Call<MovieDetailDTO> call = popularMoviesRequest.detailMovie(movieId);
         call.enqueue(this);

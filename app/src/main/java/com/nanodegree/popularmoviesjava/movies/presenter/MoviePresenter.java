@@ -28,7 +28,7 @@ public class MoviePresenter implements Callback<GenericDTO<MovieDTO>> {
     private Retrofit retrofit;
 
     @Inject
-    MoviePresenter( Retrofit retrofit, MovieView view){
+    public MoviePresenter( Retrofit retrofit, MovieView view){
         this.retrofit = retrofit;
         this.view = view;
     }
@@ -81,7 +81,7 @@ public class MoviePresenter implements Callback<GenericDTO<MovieDTO>> {
     public void onResponse(Call<GenericDTO<MovieDTO>> call, Response<GenericDTO<MovieDTO>> response) {
         if (response.isSuccessful()) {
             movies = response.body();
-            view.showResult(response.body().getResult());
+            view.showResult(response.body().getResults());
             isLastPage = movies.getTotalPages().equals(currentPage);
         } else {
             currentPage = movies !=null ? movies.getPage():1;

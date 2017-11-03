@@ -1,5 +1,6 @@
 package com.nanodegree.popularmoviesjava.movies.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,11 +17,11 @@ import com.nanodegree.popularmoviesjava.R;
 import com.nanodegree.popularmoviesjava.common.ItemClickListener;
 import com.nanodegree.popularmoviesjava.common.ScrollRecyclerViewListener;
 import com.nanodegree.popularmoviesjava.dto.MovieDTO;
-import com.nanodegree.popularmoviesjava.movies.view.adapter.MovieAdapter;
 import com.nanodegree.popularmoviesjava.movies.component.DaggerMovieComponent;
 import com.nanodegree.popularmoviesjava.movies.module.MovieModule;
 import com.nanodegree.popularmoviesjava.movies.presenter.MoviePresenter;
 import com.nanodegree.popularmoviesjava.movies.view.MovieView;
+import com.nanodegree.popularmoviesjava.movies.view.adapter.MovieAdapter;
 
 import java.util.List;
 
@@ -30,13 +31,12 @@ import javax.inject.Inject;
 /**
  * Created by luanfernandes on 31/08/17.
  */
-public class MovieActivity extends AppCompatActivity implements MovieView, ItemClickListener {
+public class MovieActivity extends AppCompatActivity implements MovieView {
 
 
     @Inject
     MoviePresenter presenter;
     private MovieAdapter movieAdapter;
-    private ScrollRecyclerViewListener scrollRecyclerViewListener;
     private RecyclerView movieRecyclerView;
     private ProgressBar progress;
 
@@ -56,9 +56,9 @@ public class MovieActivity extends AppCompatActivity implements MovieView, ItemC
             @Override
             public void onItemClickListener(int position) {
                 MovieDTO movie = movieAdapter.movieList.get(position);
-//                Intent movieDetailIntent = Intent(this, DetailMovieActivity.class)
-//                movieDetailIntent.putExtra(DetailMovieActivity.MOVIE_KEY, movie)
-//                startActivity(movieDetailIntent);
+                Intent movieDetailIntent = new Intent(MovieActivity.this, DetailMovieActivity.class);
+                movieDetailIntent.putExtra(DetailMovieActivity.MOVIE_KEY, movie);
+                startActivity(movieDetailIntent);
             }
         });
         progress = (ProgressBar) findViewById(R.id.progress);
@@ -72,7 +72,6 @@ public class MovieActivity extends AppCompatActivity implements MovieView, ItemC
                 presenter.loadNextPage();
             }
         });
-        movieRecyclerView.addOnScrollListener(scrollRecyclerViewListener);
     }
 
     private void setup() {
@@ -129,12 +128,4 @@ public class MovieActivity extends AppCompatActivity implements MovieView, ItemC
         movieRecyclerView.setVisibility(View.VISIBLE);
     }
 
-
-    @Override
-    public void onItemClickListener(int position) {
-        MovieDTO movie = movieAdapter.movieList.get(position);
-//                Intent movieDetailIntent = Intent(this, DetailMovieActivity.class)
-//                movieDetailIntent.putExtra(DetailMovieActivity.MOVIE_KEY, movie)
-//                startActivity(movieDetailIntent);
-    }
 }

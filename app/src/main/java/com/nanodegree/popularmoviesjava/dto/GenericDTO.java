@@ -7,7 +7,7 @@ public class GenericDTO<T> {
     private Integer page;
     private Integer totalResults;
     private Integer totalPages;
-    private List<T> result;
+    private List<T> results;
 
     public Integer getPage() {
         return page;
@@ -33,11 +33,11 @@ public class GenericDTO<T> {
         this.totalPages = totalPages;
     }
 
-    public List<T> getResult() {
-        return result;
+    public List<T> getResults() {
+        return results;
     }
 
-    public void setResult(List<T> result) {
-        this.result = result;
+    public void setResults(List<T> results) {
+        this.results = results;
     }
 }

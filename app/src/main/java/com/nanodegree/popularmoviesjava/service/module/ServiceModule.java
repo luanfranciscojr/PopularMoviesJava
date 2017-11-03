@@ -35,7 +35,7 @@ public class ServiceModule {
 
 
     public static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/";
-    private final String baseUrl = " https://api.themoviedb.org/3/";
+    private final String baseUrl = "https://api.themoviedb.org/3/";
     private final String apiKey = "";
 
     @Provides
@@ -80,12 +80,11 @@ public class ServiceModule {
     @Provides
     @Singleton
     Retrofit retrofit(Gson gson, OkHttpClient client) {
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson)).
                         client(client)
                 .baseUrl(baseUrl)
                 .build();
-        return retrofit;
     }
 
 }

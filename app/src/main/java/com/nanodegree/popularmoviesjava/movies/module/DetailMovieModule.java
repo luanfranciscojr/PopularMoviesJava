@@ -22,7 +22,7 @@ public class DetailMovieModule{
     }
     @Provides
     @CustomScope
-    public DetailMovieView providerMovieDetailView(){
+    DetailMovieView providerMovieDetailView(){
         return mView;
     }
 }
