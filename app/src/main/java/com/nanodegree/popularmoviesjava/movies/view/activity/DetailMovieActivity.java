@@ -64,7 +64,7 @@ public class DetailMovieActivity extends AppCompatActivity implements DetailMovi
     private void showInformations(MovieDTO movie) {
         collapsingToolbarLayout.setTitle(movie.getOriginalTitle());
         ImageView imageMovie = (ImageView) findViewById(R.id.imageMovie);
-        Picasso.with(this).load(ServiceModule.BASE_IMAGE_URL + "w342/" + movie.getPoster_path())
+        Picasso.with(this).load(ServiceModule.BASE_IMAGE_URL + "w342/" + movie.getPosterPath())
                 .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(imageMovie);
 
     }

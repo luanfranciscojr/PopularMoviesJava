@@ -2,6 +2,8 @@ package com.nanodegree.popularmoviesjava.movies.module;
 
 
 import com.nanodegree.popularmoviesjava.common.CustomScope;
+import com.nanodegree.popularmoviesjava.movies.presenter.MoviePresenter;
+import com.nanodegree.popularmoviesjava.movies.presenter.impl.MoviePresenterImpl;
 import com.nanodegree.popularmoviesjava.movies.view.MovieView;
 
 import dagger.Module;
@@ -25,5 +27,11 @@ public class MovieModule {
     @CustomScope
     MovieView providerMovieView(){
         return mView;
+    }
+
+    @Provides
+    @CustomScope
+    MoviePresenter providerMoviePresenter(MoviePresenterImpl presenter){
+        return presenter;
     }
 }

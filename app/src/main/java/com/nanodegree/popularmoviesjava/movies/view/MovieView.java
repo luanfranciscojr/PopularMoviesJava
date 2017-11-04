@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface MovieView {
     void showResult(List<MovieDTO> movies);
+
     void showProgress();
+
     void hideProgress();
 }

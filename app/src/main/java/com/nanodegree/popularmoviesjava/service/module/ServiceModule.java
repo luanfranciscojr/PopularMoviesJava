@@ -36,7 +36,7 @@ public class ServiceModule {
 
     public static final String BASE_IMAGE_URL = "https://image.tmdb.org/t/p/";
     private final String baseUrl = "https://api.themoviedb.org/3/";
-    private final String apiKey = "";
+    private final String apiKey = "90e22adce606a0ac579f85127ab407c8";
 
     @Provides
     @Singleton

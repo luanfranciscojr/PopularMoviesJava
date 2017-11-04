@@ -16,6 +16,7 @@ import com.nanodegree.popularmoviesjava.PopularMoviesApplication;
 import com.nanodegree.popularmoviesjava.R;
 import com.nanodegree.popularmoviesjava.common.ItemClickListener;
 import com.nanodegree.popularmoviesjava.common.ScrollRecyclerViewListener;
+import com.nanodegree.popularmoviesjava.common.SortType;
 import com.nanodegree.popularmoviesjava.dto.MovieDTO;
 import com.nanodegree.popularmoviesjava.movies.component.DaggerMovieComponent;
 import com.nanodegree.popularmoviesjava.movies.module.MovieModule;
@@ -84,10 +85,10 @@ public class MovieActivity extends AppCompatActivity implements MovieView {
         resetRecyclerMovies();
         switch (item.getItemId()) {
             case R.id.popular:
-                presenter.loadPopularMovies();
+                presenter.loadMovies(SortType.POPULAR);
                 break;
             case R.id.top_rated:
-                presenter.loadTopRatedMovies();
+                presenter.loadMovies(SortType.TOP_RATED);
                 break;
 
         }
@@ -103,18 +104,18 @@ public class MovieActivity extends AppCompatActivity implements MovieView {
 
     private void loadMovies() {
         resetRecyclerMovies();
-        presenter.loadPopularMovies();
+        presenter.loadMovies(SortType.POPULAR);
     }
 
     private void resetRecyclerMovies() {
         movieAdapter.movieList.clear();
-        presenter.currentPage = 1;
+        presenter.resetCurrentPage();
     }
 
 
     public void showResult(List<MovieDTO> movies) {
-        movieAdapter.movieList.addAll(movies);
-        movieAdapter.notifyDataSetChanged();
+        movieAdapter.addMovies(movies);
+
     }
 
     public void showProgress() {

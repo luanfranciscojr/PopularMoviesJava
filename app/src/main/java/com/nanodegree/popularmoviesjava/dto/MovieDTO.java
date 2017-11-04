@@ -9,7 +9,7 @@ import android.os.Parcelable;
 
 public class MovieDTO implements Parcelable {
 
-    private String poster_path;
+    private String posterPath;
     private Boolean isAdult;
     private String overview;
     private String releaseDate;
@@ -25,7 +25,7 @@ public class MovieDTO implements Parcelable {
     private Integer number;
 
     protected MovieDTO(Parcel in) {
-        poster_path = in.readString();
+        posterPath = in.readString();
         byte isAdultVal = in.readByte();
         isAdult = isAdultVal == 0x02 ? null : isAdultVal != 0x00;
         overview = in.readString();
@@ -50,7 +50,7 @@ public class MovieDTO implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(poster_path);
+        dest.writeString(posterPath);
         if (isAdult == null) {
             dest.writeByte((byte) (0x02));
         } else {
@@ -113,12 +113,12 @@ public class MovieDTO implements Parcelable {
     };
 
 
-    public String getPoster_path() {
-        return poster_path;
+    public String getPosterPath() {
+        return posterPath;
     }
 
-    public void setPoster_path(String poster_path) {
-        this.poster_path = poster_path;
+    public void setPosterPath(String posterPath) {
+        this.posterPath = posterPath;
     }
 
     public Boolean getAdult() {

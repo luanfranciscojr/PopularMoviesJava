@@ -16,11 +16,10 @@ import retrofit2.http.Query;
 public interface PopularMoviesRequest{
 
 
-    @GET("movie/popular")
-    Call<GenericDTO<MovieDTO>> popularMovies(@Query("page") Integer page);
 
-    @GET("movie/top_rated")
-    Call<GenericDTO<MovieDTO>> topReatedMovies(@Query("page") Integer page);
+
+    @GET("movie/{sort}")
+    Call<GenericDTO<MovieDTO>> getMovies(@Path("sort") String sort, @Query("page") Integer page);
 
     @GET("movie/{movie_id}")
     Call<MovieDetailDTO> detailMovie(@Path("movie_id") Long movieId);

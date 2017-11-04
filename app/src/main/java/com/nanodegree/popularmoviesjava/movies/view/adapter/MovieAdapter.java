@@ -15,6 +15,7 @@ import com.nanodegree.popularmoviesjava.service.module.ServiceModule;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
@@ -27,7 +28,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         this.onClickItem = onClickItem;
         this.context = context;
     }
-
 
 
     @Override
@@ -47,14 +47,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     }
                 }
         );
-        Picasso.with(context).load(ServiceModule.BASE_IMAGE_URL + imageWidth + movie.getPoster_path())
+        Picasso.with(context).load(ServiceModule.BASE_IMAGE_URL + imageWidth + movie.getPosterPath())
                 .placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.movieImage);
     }
 
-    public int getItemCount(){
-       return movieList.size();
+    public int getItemCount() {
+        return movieList.size();
     }
 
+    public void addMovies(List<MovieDTO> movies) {
+        movieList.addAll(movies);
+        notifyDataSetChanged();
+    }
 
 
     class ViewHolder extends RecyclerView.ViewHolder
